@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:to_dont_list/to_do_items.dart';
 
+
 class ToDoList extends StatefulWidget {
   const ToDoList({super.key});
 
@@ -41,7 +42,7 @@ class _ToDoListState extends State<ToDoList> {
                 child: const Text('OK'),
                 onPressed: () {
                   setState(() {
-            
+                    _handleNewItem(valueText);
                     Navigator.pop(context);
                   });
                 },
@@ -109,7 +110,7 @@ class _ToDoListState extends State<ToDoList> {
   void _handleNewItem(String itemText) {
     setState(() {
       print("Adding new item");
-      Item item = const Item(name: "itemText");
+      Item item = Item(name:valueText);
       items.insert(0, item);
       _inputController.clear();
     });
