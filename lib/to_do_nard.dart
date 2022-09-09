@@ -1,34 +1,40 @@
 import 'package:flutter/material.dart';
-void main() => runApp(
-  new TodoApp(),
-);
+
 class TodoApp extends StatelessWidget {
+  
+
+  // Fields in a Widget subclass are always marked "final".
+
+  final Widget title;
+
+  const TodoApp({super.key, required this.title});
+
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
-      title: 'Todo list',
-      home: new TodoList(),
+    return Container(
+      height: 56.0, // in logical pixels
+      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+      decoration: BoxDecoration(color: Colors.blue[500]),
+      // Row is a horizontal, linear layout.
+      child: Row(
+        children: [
+          const IconButton(
+            icon: Icon(Icons.menu),
+            tooltip: 'Navigation menu',
+            onPressed: null, // null disables the button
+          ),
+          // Expanded expands its child
+          // to fill the available space.
+          Expanded(
+            child: title,
+          ),
+          const IconButton(
+            icon: Icon(Icons.search),
+            tooltip: 'Search',
+            onPressed: null,
+          ),
+        ],
+      ),
     );
   }
-}
-class TodoList extends StatefulWidget {
-  @override
-  _TodoListState createState() => new _TodoListState();
-}
-class _TodoListState extends State<TodoList> {
-  final TextEditingController _textFieldController = TextEditingController();
-  final List<Todo> _todos = <Todo>[];
-
-  @override
-  Widget build(BuildContext context) {
-	  // Widget template comes here
-  }
-
-  // Other functions
-}
-final List<Todo> _todos = <Todo>[];
-class Todo {
-  Todo({required this.name, required this.checked});
-  final String name;
-  bool checked;
 }
