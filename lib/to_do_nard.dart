@@ -1,40 +1,47 @@
+//https://stackoverflow.com/questions/63515730/flutter-drawer-when-menu-icon-is-tapped
 import 'package:flutter/material.dart';
-
-class TodoApp extends StatelessWidget {
-  
-
-  // Fields in a Widget subclass are always marked "final".
-
-  final Widget title;
-
-  const TodoApp({super.key, required this.title});
-
+class NewWindow extends StatefulWidget{
+  @override 
+  _NewWindowState createState() => _NewWindowState();
+}
+class _NewWindowState extends State <NewWindow>{
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 56.0, // in logical pixels
-      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-      decoration: BoxDecoration(color: Colors.blue[500]),
-      // Row is a horizontal, linear layout.
-      child: Row(
+    return Theme(
+      data: Theme.of(context).copyWith(
+        canvasColor: Colors.blue[50],
+    ),
+    child: Drawer(
+      child: Column(
         children: [
-          const IconButton(
-            icon: Icon(Icons.menu),
-            tooltip: 'Navigation menu',
-            onPressed: null, // null disables the button
+          ListTile(
+                leading: CircleAvatar(
+                  radius: 28,
+                  backgroundColor: Colors.blueGrey,
+                  child: CircleAvatar(
+                    radius: 50,
+                    
+                  ),
+                ),
+                title: Text(
+                  'Menu',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontFamily: 'Roboto',
+                    fontWeight: FontWeight.bold,
+                    fontSize: 14,
+                  ),
+                ),
+                
           ),
-          // Expanded expands its child
-          // to fill the available space.
-          Expanded(
-            child: title,
-          ),
-          const IconButton(
-            icon: Icon(Icons.search),
-            tooltip: 'Search',
-            onPressed: null,
-          ),
+
         ],
-      ),
+      )),
+      
     );
+    
   }
+
 }
+
+
