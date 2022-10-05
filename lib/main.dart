@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:to_dont_list/to_do_items.dart';
 import 'package:to_dont_list/to_do_nard.dart';
 
+
 class ToDoList extends StatefulWidget {
   const ToDoList({super.key});
 
@@ -115,14 +116,16 @@ class _ToDoListState extends State<ToDoList> {
       _inputController.clear();
     });
   }
-
+//https://stackoverflow.com/questions/63515730/flutter-drawer-when-menu-icon-is-tapped
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return SafeArea(
+      child: Scaffold(
+        drawer: NewWindow(),
         appBar: AppBar(
           title: const Text('To Do List'),
         ),
-        body: ListView(
+         body: ListView(
           padding: const EdgeInsets.symmetric(vertical: 8.0),
           children: items.map((item) {
             return ToDoListItem(
@@ -137,10 +140,19 @@ class _ToDoListState extends State<ToDoList> {
             child: const Icon(Icons.add),
             onPressed: () {
               _displayTextInputDialog(context);
-            }));
+            }
+            )
+      )
+    );
   }
 }
 
+
+      
+    
+    //return Scaffold(
+        
+       
 void main() {
   runApp(const MaterialApp(
     title: 'To Do List',
