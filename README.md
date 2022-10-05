@@ -2,21 +2,15 @@
 
 A Flutter Demo project.
 
-## Edit Me
+The app is designed for day to day users who want to keep track of their daily activities. It allows them to enter what they want to do and cancel out what they have already done. It also provides a menu bar that provides various options of execution. 
 
-This is the file you should edit to describe your modified app.
+![Simulator Screen Shot - iPhone 11 - 2022-09-12 at 00 04 17](https://user-images.githubusercontent.com/104210778/189577552-1a21ccf2-8141-4d46-830c-e02b61d107a9.png)
 
-A README.md is written using [Markdown](https://www.markdownguide.org/), a simple language for formatting text that can be rendered as a web page. This README.md information will be displayed on the GitHub main page for your repository. Here is a resource specifically for Markdown syntax and GitHub.
+![Simulator Screen Shot - iPhone 11 - 2022-09-12 at 00 04 32](https://user-images.githubusercontent.com/104210778/189577537-90c9f204-73a6-42ba-8910-110727c8f35b.png)
 
-* <https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax>
+<img width="1440" alt="Screen Shot 2022-09-12 at 12 07 12 AM" src="https://user-images.githubusercontent.com/104210778/189577771-53b89ed9-6d05-44a4-8715-4ab35262afbb.png">
 
-Now, with a text editor on your cloned repository, or by clicking on the edit icon ✏️ on the main github.com page for your forked repository, edit the README.md file in the root directory to provide details about your app’s functionality. Be sure to follow the guidelines of the GitHub documentation on what to include in your README.md file.
+<img width="1440" alt="Screen Shot 2022-09-12 at 12 07 20 AM" src="https://user-images.githubusercontent.com/104210778/189577785-4f05ed1a-3252-4d50-b513-1ce4e7167c66.png">
 
-* <https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes>
+<img width="1440" alt="Screen Shot 2022-09-12 at 12 07 30 AM" src="https://user-images.githubusercontent.com/104210778/189577792-e135e975-54ae-462f-94a2-227320626e6c.png">
 
-The most important pieces to include right now are
-
-* Who is the audience for this app
-* What the app does
-* Why the app is useful
-* Multiple Screenshots of your app
