@@ -1,5 +1,5 @@
-//https://stackoverflow.com/questions/63515730/flutter-drawer-when-menu-icon-is-tapped
 import 'package:flutter/material.dart';
+import 'package:to_dont_list/to_do_items.dart';
 class NewWindow extends StatefulWidget{
   @override 
   _NewWindowState createState() => _NewWindowState();
@@ -34,6 +34,24 @@ class _NewWindowState extends State <NewWindow>{
                 ),
                 
           ),
+          ListTile(
+                title: const Text('All items'),
+                onTap: () {
+                  Navigator.pop(context);
+                },
+              ),
+          ListTile(
+                title: const Text('Pending'),
+                onTap: () {
+                  Navigator.pop(context);
+                },
+              ),
+          ListTile(
+                title: const Text('Already done'),
+                onTap: () {
+                  Navigator.pop(context);
+                },
+              ),
 
         ],
       )),
