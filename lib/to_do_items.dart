@@ -2,9 +2,10 @@
 import 'package:flutter/material.dart';
 
 class Item {
-  const Item({required this.name});
+  const Item(String s, {required this.name, required this.time});
 
   final String name;
+  final String time;
 
   String abbrev() {
     return name.substring(0, 1);

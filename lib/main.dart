@@ -14,6 +14,7 @@ class ToDoList extends StatefulWidget {
 class _ToDoListState extends State<ToDoList> {
   // Dialog with text from https://www.appsdeveloperblog.com/alert-dialog-with-a-text-field-in-flutter/
   final TextEditingController _inputController = TextEditingController();
+  final TextEditingController _timeController = TextEditingController();
   final ButtonStyle yesStyle = ElevatedButton.styleFrom(
       textStyle: const TextStyle(fontSize: 20), primary: Colors.green);
   final ButtonStyle noStyle = ElevatedButton.styleFrom(
@@ -25,17 +26,35 @@ class _ToDoListState extends State<ToDoList> {
         context: context,
         builder: (context) {
           return AlertDialog(
-            title: const Text('Item To Add'),
-            content: TextField(
-              onChanged: (value) {
-                setState(() {
-                  valueText = value;
-                });
-              },
-              controller: _inputController,
-              decoration:
-                  const InputDecoration(hintText: "type something here"),
-            ),
+            title: const Text('TO DO'),
+            content: Column(children: <Widget>[
+            TextField(
+                key: Key("ICKey"),
+                onChanged: (value) {
+                  setState(() {
+                    TaskText = value;
+                  });
+                },
+                controller: _inputController,
+                decoration:
+                    const InputDecoration(hintText: "type your task here"),
+                
+              ),
+              TextField(
+                key: Key("TCKey"),
+                onChanged: (value) {
+                  setState(() {
+                    TimeText = value;
+                  });
+                },
+                controller: _timeController,
+                decoration:
+                    const InputDecoration(hintText: "type the time here"),
+                
+              ),
+              ],
+              ),
+            
             actions: <Widget>[
               ElevatedButton(
                 key: const Key("OkButton"),
@@ -43,7 +62,7 @@ class _ToDoListState extends State<ToDoList> {
                 child: const Text('OK'),
                 onPressed: () {
                   setState(() {
-                    _handleNewItem(valueText);
+                    _handleNewItem(TaskText,TimeText);
                     Navigator.pop(context);
                   });
                 },
@@ -74,10 +93,11 @@ class _ToDoListState extends State<ToDoList> {
         });
   }
 
-  String valueText = "";
-
-  final List<Item> items = [const Item(name: "add more todos")];
-
+  String TaskText = "";
+  String TimeText = "";
+  int task_counter = 0;
+  
+ final List<Item> items = [Item("",time:"00:00", name: 'add to do')];
   final _itemSet = <Item>{};
 
   void _handleListChanged(Item item, bool completed) {
@@ -108,14 +128,21 @@ class _ToDoListState extends State<ToDoList> {
     });
   }
 
-  void _handleNewItem(String itemText) {
+  void _handleNewItem(String TaskText,String TimeText) {
     setState(() {
       print("Adding new item");
-      Item item = Item(name:valueText);
+      Item item = Item("",name:TaskText,time: TimeText);
       items.insert(0, item);
       _inputController.clear();
+      _timeController.clear();
     });
   }
+  void _counter() {
+    setState(() {
+      task_counter++;
+    });
+  }
+  
 //https://stackoverflow.com/questions/63515730/flutter-drawer-when-menu-icon-is-tapped
   @override
   Widget build(BuildContext context) {
@@ -123,7 +150,7 @@ class _ToDoListState extends State<ToDoList> {
       child: Scaffold(
         drawer: NewWindow(),
         appBar: AppBar(
-          title: const Text('To Do List'),
+          title: const Text('Daily Planner'),
         ),
          body: ListView(
           padding: const EdgeInsets.symmetric(vertical: 8.0),

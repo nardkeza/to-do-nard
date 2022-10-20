@@ -10,11 +10,12 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'package:to_dont_list/main.dart';
 import 'package:to_dont_list/to_do_items.dart';
+import 'package:to_dont_list/to_do_nard.dart';
 
 
 void main() {
   test('Item abbreviation should be first letter', () {
-    const item = Item(name: "add more todos");
+    const item = Item("",name: "add more todos", time: "");
     expect(item.abbrev(), "a");
   });
 
@@ -23,7 +24,7 @@ void main() {
     await tester.pumpWidget(MaterialApp(
         home: Scaffold(
             body: ToDoListItem(
-                item: const Item(name: "test"),
+                item: const Item("",name: "test",time: ""),
                 completed: true,
                 onListChanged: (Item item, bool completed) {},
                 onDeleteItem: (Item item) {}))));
@@ -39,7 +40,7 @@ void main() {
     await tester.pumpWidget(MaterialApp(
         home: Scaffold(
             body: ToDoListItem(
-                item: const Item(name: "test"),
+                item: const Item("",name: "test",time: ""),
                 completed: true,
                 onListChanged: (Item item, bool completed) {},
                 onDeleteItem: (Item item) {}))));
