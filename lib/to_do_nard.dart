@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:to_dont_list/to_do_items.dart';
-import 'package:to_dont_list/pending.dart';
+
 class NewWindow extends StatefulWidget{
   @override 
   _NewWindowState createState() => _NewWindowState();
