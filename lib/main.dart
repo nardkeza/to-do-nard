@@ -146,9 +146,9 @@ class _ToDoListState extends State<ToDoList> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        drawer: NewWindow(),
+        drawer: const NewWindow(),
         appBar: AppBar(
-          title: const Text('Daily Planner'),
+          title: Text(widget.title),
         ),
         body: ListView(
           padding: const EdgeInsets.symmetric(vertical: 8.0),
