@@ -4,7 +4,9 @@ import 'package:to_dont_list/to_do_items.dart';
 import 'package:to_dont_list/to_do_nard.dart';
 
 class ToDoList extends StatefulWidget {
-  const ToDoList({super.key});
+  const ToDoList({super.key, required this.title});
+
+  final String title;
 
   @override
   State createState() => _ToDoListState();
@@ -175,6 +177,6 @@ class _ToDoListState extends State<ToDoList> {
 void main() {
   runApp(const MaterialApp(
     title: 'To Do List',
-    home: ToDoList(),
+    home: ToDoList(title: 'Home'),
   ));
 }
