@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Item {
-  const Item(String s, {required this.name, required this.time});
+  const Item({required this.name, required this.time});
 
   final String name;
   final String time;
@@ -53,19 +53,17 @@ class ToDoListItem extends StatelessWidget {
       onTap: () {
         onListChanged(item, completed);
       },
-      onLongPress: completed
-          ? () {
+      onLongPress: () {
               onDeleteItem(item);
-            }
-          : null,
+            },
+
       leading: CircleAvatar(
         backgroundColor: _getColor(context),
-        child: Text(item.abbrev()),
+        child: Text(item.abbrev(), style:_getTextStyle(context)),
       ),
-      title: Text(
-        item.name,
-        style: _getTextStyle(context),
-      ),
+      title: Text(item.name),
+      subtitle: Text(item.time),
     );
   }
 }
+    

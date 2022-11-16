@@ -22,19 +22,23 @@ class _ToDoListState extends State<ToDoList> {
       textStyle: const TextStyle(fontSize: 20), backgroundColor: Colors.red);
 
   Future<void> _displayTextInputDialog(BuildContext context) async {
+
+    String time = "";
+    String TaskText = "";
+
     print("Loading Dialog");
     return showDialog(
         context: context,
         builder: (context) {
           return AlertDialog(
-            title: const Text('TO DO'),
+            title: const Text('Add TO DO'),
             content: Column(
-              children: <Widget>[
+              children:[
                 TextField(
                   key: const Key("ICKey"),
                   onChanged: (value) {
                     setState(() {
-                      taskText = value;
+                      TaskText = value;
                     });
                   },
                   controller: _inputController,
@@ -45,56 +49,58 @@ class _ToDoListState extends State<ToDoList> {
                   key: const Key("TCKey"),
                   onChanged: (value) {
                     setState(() {
-                      timeText = value;
+                      time = value;
                     });
                   },
                   controller: _timeController,
                   decoration:
                       const InputDecoration(hintText: "type the time here"),
+                  keyboardType: TextInputType.datetime,
                 ),
               ],
             ),
             actions: <Widget>[
-              ElevatedButton(
-                key: const Key("OkButton"),
-                style: yesStyle,
-                child: const Text('OK'),
-                onPressed: () {
-                  setState(() {
-                    _handleNewItem(taskText, timeText);
-                    Navigator.pop(context);
-                  });
-                },
-              ),
-
-              // https://stackoverflow.com/questions/52468987/how-to-turn-disabled-button-into-enabled-button-depending-on-conditions
               ValueListenableBuilder<TextEditingValue>(
                 valueListenable: _inputController,
                 builder: (context, value, child) {
                   return ElevatedButton(
-                    key: const Key("CancelButton"),
-                    style: noStyle,
-                    onPressed: value.text.isNotEmpty
-                        ? () {
-                            setState(() {
-                              Navigator.pop(context);
-                            });
-                          }
-                        : null,
-                    child: const Text('Cancel'),
+                    key: const Key("OkButton"),
+                    style: yesStyle,
+                    onPressed: value.text.isNotEmpty ? () {
+                      setState(() {
+                         _handleNewItem(TaskText,time);
+                        Navigator.pop(context);
+                  });
+                    }
+                  : null, 
+                    child: const Text('OK'),
                   );
                 },
               ),
+
+              // https://stackoverflow.com/questions/52468987/how-to-turn-disabled-button-into-enabled-button-depending-on-conditions
+                  ElevatedButton(
+                    key: const Key("CancelButton"),
+                    style: noStyle,
+                    onPressed: () {
+                      setState(() {
+                        Navigator.pop(context);
+                            });
+                },
+  
+                    child: const Text('Cancel'),
+                  ),
             ],
           );
         });
   }
 
-  String taskText = "";
-  String timeText = "";
-  int taskCounter = 0;
+  int complete_counter = 0;
+  int pending_counter = 0;
+  int all_counter = 0;
+  
+ final List<Item> items = [const Item(name: 'Add to-do',time:"Add time to-do")];
 
-  final List<Item> items = [const Item("", time: "00:00", name: 'add to do')];
   final _itemSet = <Item>{};
 
   void _handleListChanged(Item item, bool completed) {
@@ -128,7 +134,7 @@ class _ToDoListState extends State<ToDoList> {
   void _handleNewItem(String TaskText, String TimeText) {
     setState(() {
       print("Adding new item");
-      Item item = Item("", name: TaskText, time: timeText);
+      Item item = Item(name: TaskText, time: TimeText);
       items.insert(0, item);
       _inputController.clear();
       _timeController.clear();
@@ -137,7 +143,7 @@ class _ToDoListState extends State<ToDoList> {
 
   void _counter() {
     setState(() {
-      taskCounter++;
+      //taskCounter++;
     });
   }
 
