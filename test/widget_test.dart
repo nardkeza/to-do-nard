@@ -10,12 +10,13 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'package:to_dont_list/main.dart';
 import 'package:to_dont_list/to_do_items.dart';
-import 'package:to_dont_list/to_do_nard.dart';
 
+// IMPORT NOT USED
+// import 'package:to_dont_list/to_do_nard.dart';
 
 void main() {
   test('Item abbreviation should be first letter', () {
-    const item = Item("",name: "add more todos", time: "");
+    const item = Item("", name: "add more todos", time: "");
     expect(item.abbrev(), "a");
   });
 
@@ -24,7 +25,7 @@ void main() {
     await tester.pumpWidget(MaterialApp(
         home: Scaffold(
             body: ToDoListItem(
-                item: const Item("",name: "test",time: ""),
+                item: const Item("", name: "test", time: ""),
                 completed: true,
                 onListChanged: (Item item, bool completed) {},
                 onDeleteItem: (Item item) {}))));
@@ -40,7 +41,7 @@ void main() {
     await tester.pumpWidget(MaterialApp(
         home: Scaffold(
             body: ToDoListItem(
-                item: const Item("",name: "test",time: ""),
+                item: const Item("", name: "test", time: ""),
                 completed: true,
                 onListChanged: (Item item, bool completed) {},
                 onDeleteItem: (Item item) {}))));
@@ -58,7 +59,8 @@ void main() {
   });
 
   testWidgets('Default ToDoList has one item', (tester) async {
-    await tester.pumpWidget(const MaterialApp(home: ToDoList()));
+    await tester
+        .pumpWidget(const MaterialApp(home: ToDoList(title: "Default Test")));
 
     final listItemFinder = find.byType(ToDoListItem);
 
@@ -66,7 +68,7 @@ void main() {
   });
 
   testWidgets('Clicking and Typing adds item to ToDoList', (tester) async {
-    await tester.pumpWidget(const MaterialApp(home: ToDoList()));
+    await tester.pumpWidget(const MaterialApp(home: ToDoList(title: 'Test')));
 
     expect(find.byType(TextField), findsNothing);
 
@@ -88,5 +90,4 @@ void main() {
   });
 
   // One to test the tap and press actions on the items?
-
 }

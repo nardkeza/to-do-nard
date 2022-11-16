@@ -1,18 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:to_dont_list/to_do_items.dart';
+import 'package:to_dont_list/main.dart';
 
-class NewWindow extends StatefulWidget{
-  @override 
+// IMPROT NOT USED
+// import 'package:to_dont_list/to_do_items.dart';
+
+class NewWindow extends StatefulWidget {
+  const NewWindow({super.key});
+
+  @override
+  // ignore: library_private_types_in_public_api
   _NewWindowState createState() => _NewWindowState();
 }
-class _NewWindowState extends State <NewWindow>{
+
+class _NewWindowState extends State<NewWindow> {
   @override
   Widget build(BuildContext context) {
     return Theme(
-      data: Theme.of(context).copyWith(
-        canvasColor: Colors.blue[50],
-    ),
-    child: Drawer(
+        data: Theme.of(context).copyWith(
+          canvasColor: Colors.blue[50],
+        ),
+        child: Drawer(
           child: ListView(
             padding: EdgeInsets.zero,
             children: [
@@ -25,32 +32,38 @@ class _NewWindowState extends State <NewWindow>{
               ListTile(
                 title: const Text('All Tasks'),
                 onTap: () {
-                  Navigator.pop(context);
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const ToDoList(
+                                title: 'All Tasks',
+                              )));
                 },
               ),
               ListTile(
                 title: const Text('Pending Tasks'),
                 onTap: () {
-                  Navigator.pop(context);
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const ToDoList(
+                                title: 'Pending Tasks',
+                              )));
                 },
               ),
               ListTile(
                 title: const Text('Completed Tasks'),
                 onTap: () {
-                  Navigator.pop(context);
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const ToDoList(
+                                title: 'Completed Tasks',
+                              )));
                 },
               ),
             ],
           ),
-        )
-      
-    );
-    
+        ));
   }
-
 }
-
-
-
-
-
