@@ -42,7 +42,7 @@ class ToDoListItem extends StatelessWidget {
     if (!completed) return null;
 
     return const TextStyle(
-      color: Color.fromARGB(137, 255, 0, 0),
+      color: Color.fromARGB(136, 238, 242, 242),
       decoration: TextDecoration.lineThrough,
     );
   }
@@ -58,7 +58,7 @@ class ToDoListItem extends StatelessWidget {
             },
 
       leading: CircleAvatar(
-        backgroundColor:const Color.fromARGB(255, 178, 251, 181),
+        backgroundColor:const Color.fromARGB(255, 18, 43, 19),
         child: Text(item.abbrev(), style:_getTextStyle(context)),
       ),
       title: Text(item.name),

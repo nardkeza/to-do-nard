@@ -18,7 +18,7 @@ class _CompleteState extends State<Complete> {
       appBar:  AppBar(
         title: const Text('Completed Tasks'),
         centerTitle: true,
-        backgroundColor: const Color.fromARGB(255, 178, 251, 181),
+        backgroundColor:Color.fromARGB(255, 18, 43, 19),
       ),
       body:  Center(
         //child: Text('$complete_counter'),

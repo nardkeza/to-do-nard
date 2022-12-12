@@ -170,7 +170,7 @@ class _ToDoListState extends State<ToDoList> {
      
         appBar: AppBar(
           title: Text(widget.title),
-          backgroundColor: Color.fromARGB(255, 178, 251, 181),
+          backgroundColor: Color.fromARGB(255, 18, 43, 19),
         ),
         body: ListView(
           padding: const EdgeInsets.symmetric(vertical: 8.0),
@@ -184,7 +184,7 @@ class _ToDoListState extends State<ToDoList> {
           }).toList(),
         ),
         floatingActionButton: FloatingActionButton(
-          backgroundColor:const Color.fromARGB(255, 178, 251, 181) ,
+          backgroundColor: const Color.fromARGB(255, 18, 43, 19),
           onPressed: () {
             _displayTextInputDialog(context);
           },

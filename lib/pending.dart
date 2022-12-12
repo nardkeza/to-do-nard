@@ -18,7 +18,7 @@ class _PendingState extends State<Pending> {
       appBar: AppBar(
         title: const Text('Pending Tasks'),
         centerTitle: true,
-        backgroundColor: const Color.fromARGB(255, 178, 251, 181),
+        backgroundColor: const Color.fromARGB(255, 18, 43, 19),
       ),
       body:  Center(
         child: Text('Pending Items: '+' $pending'),

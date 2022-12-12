@@ -28,7 +28,7 @@ class _NewWindowState extends State<NewWindow> {
             children: [
               const DrawerHeader(
                 decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 178, 251, 181),
+                  color: Color.fromARGB(255, 18, 43, 19),
                 ),
                 child: Text('Menu'),
               ),
