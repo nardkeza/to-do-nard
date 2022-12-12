@@ -1,5 +1,6 @@
 // Started with https://docs.flutter.dev/development/ui/widgets-intro
 import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:to_dont_list/to_do_items.dart';
 import 'package:to_dont_list/to_do_nard.dart';
 
@@ -153,8 +154,10 @@ class _ToDoListState extends State<ToDoList> {
     return SafeArea(
       child: Scaffold(
         drawer: const NewWindow(),
+     
         appBar: AppBar(
           title: Text(widget.title),
+          backgroundColor: Color.fromARGB(255, 178, 251, 181),
         ),
         body: ListView(
           padding: const EdgeInsets.symmetric(vertical: 8.0),
@@ -168,10 +171,11 @@ class _ToDoListState extends State<ToDoList> {
           }).toList(),
         ),
         floatingActionButton: FloatingActionButton(
-          child: const Icon(Icons.add),
+          backgroundColor:const Color.fromARGB(255, 178, 251, 181) ,
           onPressed: () {
             _displayTextInputDialog(context);
           },
+          child: const Icon(Icons.add),
         ),
       ),
     );
@@ -182,7 +186,7 @@ class _ToDoListState extends State<ToDoList> {
 
 void main() {
   runApp(const MaterialApp(
-    title: 'To Do List',
+    title: 'Daily Planner',
     home: ToDoList(title: 'Home'),
   ));
 }

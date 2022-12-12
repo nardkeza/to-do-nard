@@ -17,7 +17,7 @@ class _NewWindowState extends State<NewWindow> {
   Widget build(BuildContext context) {
     return Theme(
         data: Theme.of(context).copyWith(
-          canvasColor: Colors.blue[50],
+          canvasColor: Color.fromARGB(255, 227, 253, 241),
         ),
         child: Drawer(
           child: ListView(
@@ -25,7 +25,7 @@ class _NewWindowState extends State<NewWindow> {
             children: [
               const DrawerHeader(
                 decoration: BoxDecoration(
-                  color: Colors.blue,
+                  color: Color.fromARGB(255, 178, 251, 181),
                 ),
                 child: Text('Menu'),
               ),
