@@ -1,30 +1,28 @@
-
 import 'package:flutter/material.dart';
 import 'package:to_dont_list/main.dart';
 import 'package:to_dont_list/to_do_nard.dart';
 
-class Complete extends StatefulWidget {
-  const Complete({super.key});
+class Pending extends StatefulWidget {
+  const Pending({super.key});
 
   @override
-  _CompleteState createState() => _CompleteState();
+  _PendingState createState() => _PendingState();
 }
 
-class _CompleteState extends State<Complete> {
+class _PendingState extends State<Pending> {
 
 
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
       appBar: AppBar(
-        title: const Text('Comleted Tasks'),
+        title: const Text('Pending Tasks'),
         centerTitle: true,
         backgroundColor: const Color.fromARGB(255, 178, 251, 181),
       ),
       body: const Center(
-        child: Text('Items Completed - '),
+        child: Text('Items Pending- '),
       ),
     );
   }
 }
-

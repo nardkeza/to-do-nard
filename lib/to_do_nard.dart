@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:to_dont_list/main.dart';
+import 'package:to_dont_list/completed.dart';
 
 // IMPROT NOT USED
 // import 'package:to_dont_list/to_do_items.dart';
@@ -57,8 +58,7 @@ class _NewWindowState extends State<NewWindow> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const ToDoList(
-                                title: 'Completed Tasks',
+                          builder: (context) => const Complete(
                               )));
                 },
               ),

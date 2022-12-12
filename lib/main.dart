@@ -1,6 +1,5 @@
 // Started with https://docs.flutter.dev/development/ui/widgets-intro
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
 import 'package:to_dont_list/to_do_items.dart';
 import 'package:to_dont_list/to_do_nard.dart';
 
@@ -140,6 +139,7 @@ class _ToDoListState extends State<ToDoList> {
       }
       complete_counter += 1;
       complete.add(item.name);
+      pending.remove(item.name);
     });
   }
 
@@ -151,6 +151,7 @@ class _ToDoListState extends State<ToDoList> {
       _inputController.clear();
       _timeController.clear();
       all_counter += 1;
+      pending.add(item.name);
     });
   }
 
