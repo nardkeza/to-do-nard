@@ -3,6 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:to_dont_list/to_do_items.dart';
 import 'package:to_dont_list/to_do_nard.dart';
 
+List complete = [];
+List pending = [];
+
+int complete_counter = 0;
+int pending_counter = 0;
+int all_counter = 0;
+
 class ToDoList extends StatefulWidget {
   const ToDoList({super.key, required this.title});
 
@@ -95,13 +102,6 @@ class _ToDoListState extends State<ToDoList> {
         });
   }
 
-  int complete_counter = 0;
-  int pending_counter = 0;
-  int all_counter = 0;
-  
-  List complete = [];
-  List pending = [];
-
  final List<Item> items = [const Item(name: 'Add to-do',time:"Add time to-do")];
 
   final _itemSet = <Item>{};
@@ -119,10 +119,14 @@ class _ToDoListState extends State<ToDoList> {
         print("Completing");
         _itemSet.add(item);
         items.add(item);
+        complete_counter += 1;
+        complete.add(item.name);
       } else {
         print("Making Undone");
         _itemSet.remove(item);
         items.insert(0, item);
+        pending_counter += 1;
+        pending.add(item.name);
       }
     });
   }

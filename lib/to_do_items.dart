@@ -42,7 +42,7 @@ class ToDoListItem extends StatelessWidget {
     if (!completed) return null;
 
     return const TextStyle(
-      color: Colors.black54,
+      color: Color.fromARGB(137, 255, 0, 0),
       decoration: TextDecoration.lineThrough,
     );
   }

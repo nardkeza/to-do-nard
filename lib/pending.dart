@@ -20,8 +20,8 @@ class _PendingState extends State<Pending> {
         centerTitle: true,
         backgroundColor: const Color.fromARGB(255, 178, 251, 181),
       ),
-      body: const Center(
-        child: Text('Items Pending- '),
+      body:  Center(
+        child: Text('Pending Items: '+' $pending'),
       ),
     );
   }

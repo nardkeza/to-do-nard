@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:to_dont_list/main.dart';
+import 'package:to_dont_list/to_do_items.dart';
 import 'package:to_dont_list/completed.dart';
+import 'package:to_dont_list/pending.dart';
 
 // IMPROT NOT USED
 // import 'package:to_dont_list/to_do_items.dart';
@@ -47,9 +49,8 @@ class _NewWindowState extends State<NewWindow> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const ToDoList(
-                                title: 'Pending Tasks',
-                              )));
+                          builder: (context) => const Pending()
+                          ));
                 },
               ),
               ListTile(
