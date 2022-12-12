@@ -100,6 +100,9 @@ class _ToDoListState extends State<ToDoList> {
   int pending_counter = 0;
   int all_counter = 0;
   
+  List complete = [];
+  List pending = [];
+
  final List<Item> items = [const Item(name: 'Add to-do',time:"Add time to-do")];
 
   final _itemSet = <Item>{};
@@ -129,6 +132,14 @@ class _ToDoListState extends State<ToDoList> {
     setState(() {
       print("Deleting item");
       items.remove(item);
+      if (all_counter > 0) {
+        all_counter -= 1;
+      }
+      else{
+        all_counter = 0;
+      }
+      complete_counter += 1;
+      complete.add(item.name);
     });
   }
 
@@ -139,14 +150,11 @@ class _ToDoListState extends State<ToDoList> {
       items.insert(0, item);
       _inputController.clear();
       _timeController.clear();
+      all_counter += 1;
     });
   }
 
-  void _counter() {
-    setState(() {
-      //taskCounter++;
-    });
-  }
+
 
 //https://stackoverflow.com/questions/63515730/flutter-drawer-when-menu-icon-is-tapped
   @override
