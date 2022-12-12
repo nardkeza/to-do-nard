@@ -199,7 +199,6 @@ class _ToDoListState extends State<ToDoList> {
 
 void main() {
   runApp(const MaterialApp(
-    title: 'Daily Planner',
-    home: ToDoList(title: 'Home'),
+    home: ToDoList(title: 'Daily Planner'),
   ));
 }
